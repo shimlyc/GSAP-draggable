@@ -1,136 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js" integrity="sha512-S6SXKUZ11xkCoD/UuhdXG4B4iiCXng+xW2KCx0lgfQqmdqtjqGgm4WChdYIhO1F/CmH21vnkSUvPEgXNgDwkjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"
+        integrity="sha512-S6SXKUZ11xkCoD/UuhdXG4B4iiCXng+xW2KCx0lgfQqmdqtjqGgm4WChdYIhO1F/CmH21vnkSUvPEgXNgDwkjg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
+
 <body>
-    
+
     <div id="main">
 
         <video id="video1" src="9731c87a-8d0a-406d-bfce-f816f9c2c951.webm" autoplay muted loop></video>
         <video id="video2" src="9731c87a-8d0a-406d-bfce-f816f9c2c951.webm" autoplay muted loop></video>
 
         <div class="container">
-            
+
             <div id="drag"> </div>
-           
+
             <div class="circle"></div>
-         
+
         </div>
     </div>
-    
-    
-    
-    
-    
-    
-    
 
 
 
 
 
 
-<script>
-
-Draggable.create("#drag",{
-    type:"x",  
-    bounds:".container"
-});
-
-function check() {
-    var div1=document.querySelector(".circle")
-    var div2=document.querySelector("#drag")
-    var rec1=div1.getBoundingClientRect();
-    var rec2=div2.getBoundingClientRect();
-     
-   
-
-if (rec1.left>rec2.right){
-    document.querySelector("#video1").style.opacity=1;
-
-}else{
-    document.querySelector("#video1").style.opacity=0;
-
-}
-}
-window.addEventListener("mousemove", check)
 
 
 
-</script>
+
+
+
+
+    <script>
+
+        Draggable.create("#drag", {
+            type: "x",
+            bounds: ".container"
+        });
+
+        function check() {
+            var div1 = document.querySelector(".circle")
+            var div2 = document.querySelector("#drag")
+            var rec1 = div1.getBoundingClientRect();
+            var rec2 = div2.getBoundingClientRect();
+
+
+
+            if (rec1.left > rec2.right) {
+                document.querySelector("#video1").style.opacity = 1;
+
+            } else {
+                document.querySelector("#video1").style.opacity = 0;
+
+            }
+        }
+        window.addEventListener("mousemove", check)
+
+
+
+    </script>
 
 </body>
+
 </html>
 
 <style>
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-#main{
-    height: 100vh;
-    width: 100%;
-    background-color: black;
-    overflow: hidden;
-    position: relative;
-}
-#video1{
-    position: absolute;
-    left:0;
-    top:0;
-    z-index: 1;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1)1s;
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
 
-    
-}
-#video2{
-    position: absolute;
-    right: 0;
-    top:0;
-    
-}
-.container{
-    /* background-color: white; */
-    width:15vw;
-    height: 10vh;
-    z-index: 9;
-    position: relative;
-    top:80%;
-    left: 50%;
-    transform: translate(-50%,0%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    #main {
+        height: 100vh;
+        width: 100%;
+        background-color: black;
+        overflow: hidden;
+        position: relative;
+    }
 
-}
-#drag{
-    height:5.4vw;
-    width: 5vw;
-    /* background-color: brown; */
-    position: absolute;
-    border-radius: 50%;
-    border: 2px dotted white;
-}
-.circle{
-    /* background-color: rgb(178, 133, 20); */
-    width: 5vw;
-    height: 5.4vw;
-    border-radius: 50%;
-    position: absolute;
-    right: 0;
-    top: 7;
-    border: 2px dotted orange;
-    
-    
-}
+    #video1 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1)1s;
+        height:113vh ;
 
 
+    }
 
+    #video2 {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 113vh;
+    }
+
+    .container {
+        /* background-color: white; */
+        width: 15vw;
+        height: 10vh;
+        z-index: 9;
+        position: relative;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    #drag {
+        height: 3.4vw;
+        width: 3vw;
+        /* background-color: brown; */
+        position: absolute;
+        border-radius: 50%;
+        border: 2px dotted white;
+    }
+
+    .circle {
+        /* background-color: rgb(178, 133, 20); */
+        width: 3vw;
+        height: 3.4vw;
+        border-radius: 50%;
+        position: absolute;
+        right: 0;
+        top: 7;
+        border: 2px dotted orange;
+
+
+    }
 </style>
